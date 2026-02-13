@@ -78,9 +78,11 @@ header.hl_header.--agency span {
   color: var(--syntax-white) !important;
 }
 
-hl_header {
-  background: var(--syntax-black) !important;
-  color: var(--syntax-black) !important;
+
+.syntax.hl_header,
+header.hl_header.syntax {
+   background: #000F14 !important;
+   color: #F0F4F5 !important;
 }
 
 header.hl_header.--agency .btn {
