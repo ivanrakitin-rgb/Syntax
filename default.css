@@ -1,0 +1,83 @@
+/* =====================================================
+   GOHIGHLEVEL AGENCY CUSTOM CSS
+   + Location-specific override for SPORTSSCOOL AOG
+===================================================== */
+
+/* ========= MENU LABEL FIX ========= */
+#sb_reputation {
+  font-size: 0; /* blendet den Original-Text („RUF") aus */
+}
+
+#sb_reputation::after {
+  content: 'Bewertungen';
+  font-size: 14px;
+  line-height: 1;
+  color: var(--syntax-white);
+}
+
+/* ========= ROOT / BRAND (AGENCY DEFAULT) ========= */
+:root {
+  --syntax-black: #000F14;
+  --syntax-white: #F0F4F5;
+
+  --border-subtle: rgba(240, 244, 245, 0.12);
+  --border-strong: rgba(240, 244, 245, 0.24);
+
+  --font-heading: 'Clash Display', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ========= LEAD CONNECTOR ========= */
+.lead-connector {
+  background-color: var(--syntax-black) !important;
+}
+
+/* ========= SIDEBAR ========= */
+#sidebar-v2 {
+  background-color: var(--syntax-black) !important;
+}
+
+/* Menu text */
+#sidebar-v2 nav a .nav-title {
+  color: var(--syntax-white) !important;
+}
+
+#sidebar-v2 nav a:hover .nav-title,
+#sidebar-v2 nav a.active .nav-title,
+#sidebar-v2 nav a.exact-active .nav-title {
+  color: var(--syntax-black) !important;
+}
+
+/* ========= ICONS ========= */
+#sidebar-v2 nav a img,
+#sidebar-v2 nav a i {
+  color: var(--syntax-white) !important;
+  filter: brightness(0) invert(1);
+  transition: filter 0.15s ease, color 0.15s ease;
+}
+
+#sidebar-v2 nav a:hover img,
+#sidebar-v2 nav a:hover i,
+#sidebar-v2 nav a.active img,
+#sidebar-v2 nav a.exact-active img,
+#sidebar-v2 nav a.active i,
+#sidebar-v2 nav a.exact-active i {
+  color: var(--syntax-black) !important;
+  filter: brightness(0) invert(0);
+}
+
+/* ========= HEADER ========= */
+header.hl_header.--agency {
+  background-color: var(--syntax-black) !important;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+header.hl_header.--agency,
+header.hl_header.--agency i,
+header.hl_header.--agency span {
+  color: var(--syntax-white) !important;
+}
+
+header.hl_header.--agency .btn {
+  background-color: transparent !important;
+}
