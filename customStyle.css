@@ -1,0 +1,121 @@
+/* =====================================================
+   LOCATION-SPECIFIC: SPORTSSCOOL AOG
+   ID: 4bfYfrGu18PisFfL9jyt
+   Style: Flat / High Contrast
+   Colors: Red / Black / White
+===================================================== */
+
+/* Define location-specific colors */
+[class*="YmHVXDzYK1kjfd8RHa6D"] {
+  --sc-red: #DF0A0A;
+  --sc-black: #000000;
+  --sc-white: #FFFFFF;
+  --sc-border-subtle: rgba(255, 255, 255, 0.15);
+  --sc-border-strong: rgba(255, 255, 255, 0.3);
+}
+
+/* ========= SIDEBAR ========= */
+[class*="YmHVXDzYK1kjfd8RHa6D"] .lead-connector {
+  background: linear-gradient(60deg, var(--sc-black), var(--sc-red)) !important;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 {
+  background-color: transparent !important;
+  border-right: 1px solid var(--sc-border-subtle) !important;
+}
+
+/* Menu text */
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a .nav-title {
+  color: var(--sc-red) !important;
+  font-weight: 500;
+  opacity: 1 !important;
+}
+
+/* Nav items - override opacity */
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a {
+  opacity: 1 !important;
+}
+
+/* Hover + Active states */
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a:hover,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.active,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.exact-active {
+  background-color: rgba(223, 10, 10, 0.08) !important;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a:hover .nav-title,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.active .nav-title,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.exact-active .nav-title {
+  color: var(--sc-white) !important;
+}
+
+/* ========= ICONS IN SIDEBAR ========= */
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
+  transition: filter 0.15s ease;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a:hover img,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.active img,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.exact-active img {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(95%)
+          saturate(6000%) hue-rotate(355deg) brightness(95%) !important;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a i {
+  color: var(--sc-white) !important;
+  opacity: 1 !important;
+  transition: color 0.15s ease;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a:hover i,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.active i,
+[class*="YmHVXDzYK1kjfd8RHa6D"] #sidebar-v2 nav a.exact-active i {
+  color: var(--sc-red) !important;
+}
+
+/* ========= HEADER ========= */
+[class*="YmHVXDzYK1kjfd8RHa6D"] header.hl_header {
+  background-color: var(--sc-red) !important;
+  border-bottom: 1px solid var(--sc-border-subtle) !important;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] header.hl_header,
+[class*="YmHVXDzYK1kjfd8RHa6D"] header.hl_header span,
+[class*="YmHVXDzYK1kjfd8RHa6D"] header.hl_header i {
+  color: var(--sc-white) !important;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] header.hl_header .btn {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ========= PAGE HEADERS ========= */
+[class*="YmHVXDzYK1kjfd8RHa6D"] .h1_header div,
+[class*="YmHVXDzYK1kjfd8RHa6D"] h1,
+[class*="YmHVXDzYK1kjfd8RHa6D"] h2,
+[class*="YmHVXDzYK1kjfd8RHa6D"] h3 {
+  color: var(--sc-white) !important;
+}
+
+/* ========= BUTTONS ========= */
+[class*="YmHVXDzYK1kjfd8RHa6D"] .btn {
+  background-color: transparent !important;
+  color: var(--sc-white) !important;
+  border: 1px solid var(--sc-border-strong) !important;
+  box-shadow: none !important;
+}
+
+[class*="YmHVXDzYK1kjfd8RHa6D"] .btn:hover {
+  background-color: var(--sc-red) !important;
+  border-color: var(--sc-red) !important;
+  color: var(--sc-white) !important;
+}
+
+/* ========= REMOVE SHADOWS & GRADIENTS ========= */
+[class*="YmHVXDzYK1kjfd8RHa6D"] *:not(.lead-connector) {
+  box-shadow: none !important;
+  background-image: none !important;
+}
