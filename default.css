@@ -78,6 +78,11 @@ header.hl_header.--agency span {
   color: var(--syntax-white) !important;
 }
 
+header.hl_header {
+  background: var(--syntax-black) !important;
+  color: var(--syntax-black) !important;
+}
+
 header.hl_header.--agency .btn {
   background-color: transparent !important;
 }
