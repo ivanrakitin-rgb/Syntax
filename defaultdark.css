@@ -42,7 +42,7 @@
   --gray-500:  #c8dfe0;    /* 7.6:1 on card bg — replaces failing #908179 */
   --gray-600:  #aed6c0;    /* 6.1:1 on card bg */
   --gray-700:  #d0eaea;
-  --gray-800:  #e4f2f2;
+  --gray-800:  #0d2227;    /* dark — used by .hl-toolbar.dark as bg */
   --gray-900:  #5db97e;    /* brand green = primary text on dark */
 
   --base-white:               #23363d;   /* surfaces */
@@ -509,13 +509,25 @@ button:disabled {
 /* =====================================================================
    13. TOOLBAR
    ===================================================================== */
-.hl-toolbar, .hl-toolbar.dark {
+.hl-toolbar,
+.hl-toolbar.dark,
+.hl-toolbar.light {
   background: #0d2227 !important;
   border-bottom: 1px solid #1e4a57 !important;
   color: #5db97e !important;
 }
-.hl-toolbar-group.hl-br { border-right-color: #1e4a57 !important; }
-.hl-toolbar-group.hl-bl { border-left-color: #1e4a57 !important; }
+.hl-toolbar-group.hl-br {
+  border-right-color: #1e4a57 !important;
+}
+.hl-toolbar-group.hl-bl {
+  border-left-color: #1e4a57 !important;
+}
+/* Toolbar icon/button tint */
+.hl-toolbar .toolbar-button__icon,
+.hl-toolbar [class*="toolbar-button"] svg {
+  color: #5db97e !important;
+  fill: #5db97e !important;
+}
 
 /* =====================================================================
    14. DROPDOWN MENUS
