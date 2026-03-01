@@ -44,7 +44,7 @@
   --gray-500:  #7ddcc0;   /* 5.4:1 on card bg */
   --gray-600:  #b8f5e8;   /* 8.9:1 on card bg */
   --gray-700:  #d4fff5;
-  --gray-800:  #eafffa;
+  --gray-800:  #080d18;    /* dark — used by .hl-toolbar.dark as bg */
   --gray-900:  #00ff9d;   /* neon green primary */
 
   --base-white:               #0d1526;   /* surfaces (dark) */
@@ -559,11 +559,25 @@ button:disabled {
 /* =====================================================================
    13. TOOLBAR
    ===================================================================== */
-.hl-toolbar, .hl-toolbar.light {
+.hl-toolbar,
+.hl-toolbar.dark,
+.hl-toolbar.light {
   background: #030610 !important;
   border-bottom: 1px solid rgba(0,255,157,0.18) !important;
   color: #00ff9d !important;
   box-shadow: 0 1px 12px rgba(0,0,0,0.5) !important;
+}
+.hl-toolbar-group.hl-br {
+  border-right-color: rgba(0,255,157,0.20) !important;
+}
+.hl-toolbar-group.hl-bl {
+  border-left-color: rgba(0,255,157,0.20) !important;
+}
+/* Toolbar icon/button tint */
+.hl-toolbar .toolbar-button__icon,
+.hl-toolbar [class*="toolbar-button"] svg {
+  color: #00ff9d !important;
+  fill: #00ff9d !important;
 }
 
 /* =====================================================================
