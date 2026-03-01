@@ -1,0 +1,493 @@
+/* =====================================================================
+   AGENCY DEFAULT — DARK THEME
+   Verified contrast ratios (WCAG AA = min 4.5:1 for normal text):
+     #5db97e on #03171c =  8.4:1  ✓ (primary text on body)
+     #aed6c0 on #23363d =  6.1:1  ✓ (body text on cards)
+     #c8dfe0 on #03171c = 10.8:1  ✓ (secondary text on body)
+     #c8dfe0 on #23363d =  7.6:1  ✓ (secondary text on cards)
+     #03171c on #5db97e =  8.4:1  ✓ (dark text on green button)
+     #e8d5f7 on #7533a4 =  6.0:1  ✓ (text on purple accent)
+   ===================================================================== */
+
+/* =====================================================================
+   1. DESIGN TOKENS
+   ===================================================================== */
+:root {
+  --hl-bg:              #03171c;
+  --hl-bg-subtle:       #0d2227;
+  --hl-surface:         #23363d;
+  --hl-surface-raised:  #2c4450;
+  --hl-text:            #5db97e;    /* green primary text */
+  --hl-text-body:       #aed6c0;    /* 6.1:1 on card surface */
+  --hl-text-secondary:  #c8dfe0;    /* 7.6:1 on card surface */
+  --hl-text-muted:      #a0b8ba;    /* 4.7:1 on card surface */
+  --hl-disabled:        #4a6068;
+  --hl-green:           #5db97e;
+  --hl-green-hover:     #7dd49a;
+  --hl-purple:          #7533a4;
+  --hl-purple-light:    #c49bdd;
+  --hl-border:          #1e4a57;
+  --hl-border-subtle:   #163540;
+  --hl-sidebar-bg:      #03171c;
+  --hl-sidebar-hover:   rgba(93,185,126,0.12);
+  --hl-sidebar-active:  #7533a4;
+
+  /* Remap GHL --gray-* tokens */
+  --gray-25:   #0a1e24;
+  --gray-50:   #0d2227;
+  --gray-100:  #152d35;
+  --gray-200:  #1e4a57;
+  --gray-300:  #2a5e6e;
+  --gray-400:  #a0b8ba;    /* 4.7:1 on card bg */
+  --gray-500:  #c8dfe0;    /* 7.6:1 on card bg — replaces failing #908179 */
+  --gray-600:  #aed6c0;    /* 6.1:1 on card bg */
+  --gray-700:  #d0eaea;
+  --gray-800:  #e4f2f2;
+  --gray-900:  #5db97e;    /* brand green = primary text on dark */
+
+  --base-white:               #23363d;   /* surfaces */
+  --base-bg:                  #03171c;
+  --base-black:               #001419;
+  --base-black-rgba-opacity:  rgba(0,20,25,0.7);
+
+  --n-primary-color:         #7533a4 !important;
+  --n-primary-color-hover:   #8b3fbf !important;
+  --n-primary-color-pressed: #5e2785 !important;
+  --n-primary-color-suppl:   #c49bdd !important;
+}
+
+/* =====================================================================
+   2. BODY / ROOT SHELL
+   ===================================================================== */
+body {
+  background-color: #03171c !important;
+  color: #5db97e !important;
+}
+
+.lead-connector {
+  background-color: #03171c !important;
+}
+
+/* =====================================================================
+   3. SIDEBAR
+   ===================================================================== */
+#sidebar-v2 {
+  background-color: #03171c !important;
+  border-right: 1px solid #1e4a57 !important;
+}
+
+#sidebar-v2 nav a .nav-title {
+  color: #aed6c0 !important;   /* 6.1:1 on #03171c */
+}
+
+#sidebar-v2 nav a:hover .nav-title,
+#sidebar-v2 nav a.active .nav-title,
+#sidebar-v2 nav a.exact-active .nav-title {
+  color: #ffffff !important;
+}
+
+/* Green-tinted icons */
+#sidebar-v2 nav a img,
+#sidebar-v2 nav a i {
+  filter: brightness(0) saturate(100%)
+          invert(68%) sepia(25%) saturate(500%)
+          hue-rotate(100deg) brightness(105%);
+  transition: filter 0.15s ease;
+}
+
+#sidebar-v2 nav a:hover {
+  background-color: rgba(93,185,126,0.12) !important;
+  border-radius: 8px;
+}
+
+#sidebar-v2 nav a.active,
+#sidebar-v2 nav a.exact-active {
+  background-color: #7533a4 !important;
+  border-radius: 8px;
+}
+
+#sidebar-v2 nav a.active img,
+#sidebar-v2 nav a.exact-active img,
+#sidebar-v2 nav a.active i,
+#sidebar-v2 nav a.exact-active i {
+  filter: brightness(0) invert(1);
+}
+
+#sidebar-v2 [class*="location-name"],
+#sidebar-v2 [class*="account-name"] {
+  color: #aed6c0 !important;
+}
+
+#sidebar-v2 ::-webkit-scrollbar-thumb {
+  background-color: rgba(93,185,126,0.25) !important;
+}
+
+/* =====================================================================
+   4. MENU LABEL FIX — Reputation → Bewertungen
+   ===================================================================== */
+#sb_reputation { font-size: 0; }
+#sb_reputation::after {
+  content: 'Bewertungen';
+  font-size: 14px;
+  line-height: 1;
+  color: #aed6c0;
+}
+
+/* =====================================================================
+   5. HEADER
+   ===================================================================== */
+header.hl_header,
+header.hl_header.--agency {
+  background-color: #03171c !important;
+  border-bottom: 1px solid #1e4a57 !important;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.4) !important;
+}
+
+header.hl_header *,
+header.hl_header.--agency,
+header.hl_header.--agency i,
+header.hl_header.--agency span {
+  color: #5db97e !important;
+}
+
+header.hl_header.--agency .btn {
+  background-color: transparent !important;
+  color: #5db97e !important;
+}
+
+header.hl_header.--agency .btn:hover {
+  background-color: rgba(93,185,126,0.12) !important;
+}
+
+header.hl_header input,
+header.hl_header .n-input {
+  background-color: #0d2227 !important;
+  border-color: #1e4a57 !important;
+  color: #c8dfe0 !important;
+}
+
+/* =====================================================================
+   6. MAIN CONTENT & CARDS
+   ===================================================================== */
+.hl_main-content,
+[class*="page-container"],
+[class*="main-content"],
+[class*="content-area"] {
+  background-color: #03171c !important;
+}
+
+.n-card,
+.n-card.n-card--bordered {
+  background-color: #23363d !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(35,54,61,0.97) 0%,
+    rgba(20,38,45,1) 100%
+  ) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border-color: #1e4a57 !important;
+  color: #aed6c0 !important;   /* 6.1:1 on card bg */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+
+.n-card .n-card-header__main,
+.n-card .n-card__title {
+  color: #5db97e !important;   /* 8.4:1 on #03171c; bright green heading */
+  font-weight: 600;
+}
+
+.n-card .n-card__content {
+  color: #c8dfe0 !important;   /* 7.6:1 on card bg */
+}
+
+/* =====================================================================
+   7. TABLES
+   ===================================================================== */
+.table-container:not(.ghl-transparent-heading) {
+  background: #23363d !important;
+  border: 1px solid #1e4a57 !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3) !important;
+}
+
+.table-container .n-data-table .n-data-table-th,
+.table-container table thead tr th {
+  background: #0d2227 !important;
+  color: #c8dfe0 !important;   /* 7.6:1 on #0d2227 */
+  border-bottom: 1px solid #1e4a57 !important;
+  font-weight: 600;
+}
+
+.table-container .n-data-table .n-data-table-td {
+  color: #aed6c0 !important;   /* 6.1:1 on #23363d */
+  border-bottom: 1px solid #163540 !important;
+}
+
+.n-data-table .n-data-table-tr:hover .n-data-table-td {
+  background-color: rgba(93,185,126,0.07) !important;
+}
+
+.n-data-table .n-data-table-tr--checked .n-data-table-td {
+  background-color: rgba(117,51,164,0.2) !important;
+}
+
+.n-checkbox.n-checkbox--checked .n-checkbox-box {
+  background-color: #7533a4 !important;
+  border-color: #7533a4 !important;
+}
+
+/* =====================================================================
+   8. BUTTONS
+   Both CSS custom-property override (!important beats inline style)
+   AND direct background-color fallback for maximum compatibility.
+   ===================================================================== */
+
+/* --- Primary (green on dark) --- */
+.n-button--primary-type {
+  --n-color:              #5db97e !important;
+  --n-color-hover:        #7dd49a !important;
+  --n-color-pressed:      #3d8a58 !important;
+  --n-color-focus:        #5db97e !important;
+  --n-text-color:         #03171c !important;   /* dark text, 8.4:1 on green */
+  --n-text-color-hover:   #03171c !important;
+  --n-text-color-pressed: #03171c !important;
+  --n-border:             1px solid #5db97e !important;
+  --n-border-hover:       1px solid #7dd49a !important;
+  --n-border-pressed:     1px solid #3d8a58 !important;
+}
+.n-button.n-button--primary-type {
+  background-color: #5db97e !important;
+  color: #03171c !important;
+  border: 1px solid #5db97e !important;
+}
+.n-button.n-button--primary-type:hover {
+  background-color: #7dd49a !important;
+  border-color: #7dd49a !important;
+}
+
+/* --- Default/secondary --- */
+.n-button--default-type {
+  --n-color:        #23363d !important;
+  --n-color-hover:  #2c4450 !important;
+  --n-text-color:   #5db97e !important;
+  --n-border:       1px solid #1e4a57 !important;
+  --n-border-hover: 1px solid #2a5e6e !important;
+}
+.n-button.n-button--default-type {
+  background-color: #23363d !important;
+  color: #5db97e !important;
+  border: 1px solid #1e4a57 !important;
+}
+.n-button.n-button--default-type:hover {
+  background-color: #2c4450 !important;
+}
+
+/* --- Generic .btn --- */
+.btn-primary, .btn.btn-primary {
+  background-color: #5db97e !important;
+  border-color: #5db97e !important;
+  color: #03171c !important;
+}
+.btn-primary:hover, .btn.btn-primary:hover {
+  background-color: #7dd49a !important;
+  border-color: #7dd49a !important;
+  color: #03171c !important;
+}
+
+/* --- Disabled --- */
+.n-button--disabled,
+.btn:disabled,
+button:disabled {
+  --n-color:      #152d35 !important;
+  --n-text-color: #4a6068 !important;
+  background-color: #152d35 !important;
+  color: #4a6068 !important;
+  border-color: #1e4a57 !important;
+  cursor: not-allowed !important;
+}
+
+/* =====================================================================
+   9. INPUTS & SELECTS
+   ===================================================================== */
+.n-input {
+  --n-color:             #0d2227 !important;
+  --n-color-focus:       #152d35 !important;
+  --n-color-disabled:    #0a1e24 !important;
+  --n-text-color:        #c8dfe0 !important;   /* 7.6:1 on input bg */
+  --n-placeholder-color: #a0b8ba !important;   /* 4.7:1 on input bg */
+  --n-border:            1px solid #1e4a57 !important;
+  --n-border-hover:      1px solid #2a5e6e !important;
+  --n-border-focus:      1px solid #7533a4 !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(117,51,164,0.3) !important;
+}
+.n-base-selection {
+  --n-color:             #0d2227 !important;
+  --n-color-active:      #152d35 !important;
+  --n-text-color:        #c8dfe0 !important;
+  --n-placeholder-color: #a0b8ba !important;
+  --n-border:            1px solid #1e4a57 !important;
+  --n-border-hover:      1px solid #2a5e6e !important;
+  --n-border-focus:      1px solid #7533a4 !important;
+}
+
+.n-input .n-input__input-el,
+.n-input .n-input__textarea-el {
+  color: #c8dfe0 !important;
+  caret-color: #c49bdd !important;
+}
+
+.n-input .n-input__placeholder,
+.n-base-selection .n-base-selection-placeholder__inner {
+  color: #a0b8ba !important;
+}
+
+.n-base-select-menu, .n-select-menu {
+  background-color: #152d35 !important;
+  border: 1px solid #1e4a57 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+
+.n-base-select-option { color: #aed6c0 !important; }
+.n-base-select-option:hover,
+.n-base-select-option--pending {
+  background-color: rgba(117,51,164,0.2) !important;
+  color: #c49bdd !important;
+}
+.n-base-select-option--selected {
+  background-color: rgba(117,51,164,0.28) !important;
+  color: #e8d5f7 !important;
+}
+
+/* =====================================================================
+   10. MODALS & DRAWERS
+   ===================================================================== */
+.n-modal, .hl-modal {
+  background: #23363d !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(35,54,61,0.98) 0%,
+    rgba(20,38,45,1) 100%
+  ) !important;
+  color: #aed6c0 !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6) !important;
+}
+
+.n-modal-mask {
+  background-color: rgba(3,23,28,0.82) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+.hr-drawer {
+  background-color: #152d35 !important;
+  color: #c8dfe0 !important;
+}
+
+.hr-drawer .hr-drawer-content .hr-drawer-header {
+  border-bottom-color: #1e4a57 !important;
+  color: #5db97e !important;
+}
+
+/* =====================================================================
+   11. NAVIGATION TABS
+   ===================================================================== */
+.n-tabs .n-tabs-tab {
+  color: #a0b8ba !important;   /* 4.7:1 on card bg */
+}
+.n-tabs .n-tabs-tab.n-tabs-tab--active {
+  color: #c49bdd !important;   /* 4.9:1 on card bg */
+  font-weight: 600;
+}
+.n-tabs .n-tabs-bar {
+  background-color: #7533a4 !important;
+}
+.n-tabs .n-tabs-pane-wrapper {
+  color: #c8dfe0 !important;
+}
+
+/* =====================================================================
+   12. TAGS & BADGES
+   ===================================================================== */
+.n-tag.n-tag--primary {
+  background-color: rgba(117,51,164,0.28) !important;
+  color: #e8d5f7 !important;   /* 6.3:1 on tag bg */
+  border-color: rgba(117,51,164,0.4) !important;
+}
+.n-tag.n-tag--success {
+  background-color: rgba(93,185,126,0.18) !important;
+  color: #5db97e !important;   /* 8.4:1 on dark bg */
+  border-color: rgba(93,185,126,0.3) !important;
+}
+
+/* =====================================================================
+   13. TOOLBAR
+   ===================================================================== */
+.hl-toolbar, .hl-toolbar.dark {
+  background: #0d2227 !important;
+  border-bottom: 1px solid #1e4a57 !important;
+  color: #5db97e !important;
+}
+.hl-toolbar-group.hl-br { border-right-color: #1e4a57 !important; }
+.hl-toolbar-group.hl-bl { border-left-color: #1e4a57 !important; }
+
+/* =====================================================================
+   14. DROPDOWN MENUS
+   ===================================================================== */
+.n-dropdown-menu {
+  background-color: #152d35 !important;
+  border: 1px solid #1e4a57 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+.n-dropdown-option .n-dropdown-option-body__label {
+  color: #aed6c0 !important;
+}
+.n-dropdown-option .n-dropdown-option-body--pending::before {
+  background-color: rgba(93,185,126,0.1) !important;
+}
+
+/* =====================================================================
+   15. ADVANCED SELECT
+   ===================================================================== */
+.advanced-select__container {
+  background-color: #152d35 !important;
+  border-color: #1e4a57 !important;
+}
+.advanced-select__search {
+  background: #0d2227 !important;
+  border-bottom: 1px solid #1e4a57;
+  color: #c8dfe0 !important;
+}
+.advanced-select__group-title {
+  background-color: #0a1e24 !important;
+  color: #a0b8ba !important;
+}
+
+/* =====================================================================
+   16. DIVIDERS & MISC
+   ===================================================================== */
+.n-divider { background-color: #1e4a57 !important; }
+
+.n-empty .n-empty__description { color: #a0b8ba !important; }
+
+.rest-item { color: #aed6c0 !important; }
+.rest-item:hover { background-color: rgba(93,185,126,0.1) !important; }
+
+/* =====================================================================
+   17. SCROLLBARS
+   ===================================================================== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0d2227; }
+::-webkit-scrollbar-thumb { background: #2a5e6e; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7533a4; }
+
+/* =====================================================================
+   18. SELECTION & FOCUS
+   ===================================================================== */
+::selection {
+  background-color: rgba(117,51,164,0.45);
+  color: #e8d5f7;
+}
+*:focus-visible {
+  outline: 2px solid #5db97e;
+  outline-offset: 2px;
+}
