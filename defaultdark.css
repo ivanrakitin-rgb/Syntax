@@ -86,22 +86,55 @@ body {
   color: #ffffff !important;
 }
 
-/* Icons — bright white on dark sidebar */
+/* Icons — bright white on dark sidebar (covers img, icon fonts, SVG) */
 #sidebar-v2 nav a img,
-#sidebar-v2 nav a i {
-  filter: brightness(0) invert(1) opacity(1);
+#sidebar-v2 nav a i,
+#sidebar-v2 nav a svg,
+#sidebar-v2 nav a [class*="icon"],
+#sidebar-v2 nav a [class*="nav-icon"] {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
   transition: filter 0.15s ease;
 }
 
-/* Hover → bright neon green tint */
+/* Icon font color fallback */
+#sidebar-v2 nav a i,
+#sidebar-v2 nav a [class*="icon"] {
+  color: #ffffff !important;
+}
+
+/* SVG fill fallback */
+#sidebar-v2 nav a svg path,
+#sidebar-v2 nav a svg rect,
+#sidebar-v2 nav a svg circle,
+#sidebar-v2 nav a svg polygon,
+#sidebar-v2 nav a svg use {
+  fill: #ffffff !important;
+  stroke: none !important;
+}
+
+/* Hover → bright neon green */
 #sidebar-v2 nav a:hover {
   background-color: rgba(93,185,126,0.12) !important;
   border-radius: 8px;
 }
 #sidebar-v2 nav a:hover img,
-#sidebar-v2 nav a:hover i {
+#sidebar-v2 nav a:hover i,
+#sidebar-v2 nav a:hover svg,
+#sidebar-v2 nav a:hover [class*="icon"],
+#sidebar-v2 nav a:hover [class*="nav-icon"] {
   filter: brightness(0) invert(1) sepia(1) saturate(6)
-          hue-rotate(100deg) brightness(1.8);
+          hue-rotate(100deg) brightness(1.8) !important;
+}
+#sidebar-v2 nav a:hover i,
+#sidebar-v2 nav a:hover [class*="icon"] {
+  color: #00ff9d !important;
+}
+#sidebar-v2 nav a:hover svg path,
+#sidebar-v2 nav a:hover svg rect,
+#sidebar-v2 nav a:hover svg circle,
+#sidebar-v2 nav a:hover svg polygon {
+  fill: #5db97e !important;
 }
 
 #sidebar-v2 nav a.active,
