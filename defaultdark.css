@@ -169,13 +169,29 @@ header.hl_header .n-input {
 /* =====================================================================
    6. MAIN CONTENT & CARDS
    ===================================================================== */
+
+/* ---- Dark body / page background ---- */
+/* Override Tailwind bg-gray-* utility classes used on dashboard wrappers */
+#location-dashboard,
+.location-dashboard-wrapper,
+.hl-wrapper-container,
 .hl_main-content,
 [class*="page-container"],
 [class*="main-content"],
 [class*="content-area"] {
   background-color: #03171c !important;
+  background-image: none !important;
 }
 
+/* Force bg-gray-50 / bg-gray-100 Tailwind overrides on dark theme */
+#location-dashboard.bg-gray-50,
+.location-dashboard-wrapper.bg-gray-100,
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: #03171c !important;
+}
+
+/* ---- n-card (Naive UI cards) ---- */
 .n-card,
 .n-card.n-card--bordered {
   background-color: #23363d !important;
@@ -187,18 +203,74 @@ header.hl_header .n-input {
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   border-color: #1e4a57 !important;
-  color: #aed6c0 !important;   /* 6.1:1 on card bg */
+  color: #aed6c0 !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.35);
 }
 
 .n-card .n-card-header__main,
 .n-card .n-card__title {
-  color: #5db97e !important;   /* 8.4:1 on #03171c; bright green heading */
+  color: #5db97e !important;
   font-weight: 600;
 }
 
 .n-card .n-card__content {
-  color: #c8dfe0 !important;   /* 7.6:1 on card bg */
+  color: #c8dfe0 !important;
+}
+
+/* ---- hl-card (Dashboard widget cards — have inline bg: white) ---- */
+/* Purple frosted-glass bubble effect */
+.hl-card {
+  background: linear-gradient(
+    145deg,
+    rgba(75, 20, 120, 0.88) 0%,
+    rgba(100, 45, 155, 0.75) 40%,
+    rgba(140, 80, 190, 0.55) 100%
+  ) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(196,155,221,0.30) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 8px 32px rgba(117,51,164,0.35),
+    0 2px 8px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.12) !important;
+  color: #e8d5f7 !important;
+}
+
+/* Card header text */
+.hl-card .hl-card-header p,
+.hl-card .hl-card-header .hl-text-md-medium,
+.hl-card [role="heading"] {
+  color: #f0e4ff !important;
+}
+
+/* Card body text — override inline style="color: rgb(51,65,85)" */
+.hl-card .hl-card-content,
+.hl-card .hl-card-content p,
+.hl-card .hl-card-content span,
+.hl-card .hl-card-content div {
+  color: #e0c8ff !important;
+}
+
+/* Specific hl text classes inside cards */
+.hl-card .hl-display-sm-semibold,
+.hl-card .text-3xl {
+  color: #f0e4ff !important;
+}
+
+.hl-card .hl-text-xs-regular,
+.hl-card .text-gray-500 {
+  color: #c49bdd !important;
+}
+
+/* Empty state titles */
+.hl-card .hl-empty-title {
+  color: #d4b8f0 !important;
+}
+
+/* Card footer */
+.hl-card .hl-card-footer {
+  border-top: 1px solid rgba(196,155,221,0.20) !important;
 }
 
 /* =====================================================================
