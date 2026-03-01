@@ -91,7 +91,17 @@ body {
 #sidebar-v2 nav a i,
 #sidebar-v2 nav a svg,
 #sidebar-v2 nav a [class*="icon"],
-#sidebar-v2 nav a [class*="nav-icon"] {
+#sidebar-v2 nav a [class*="nav-icon"],
+#sidebar-v2 nav img,
+#sidebar-v2 nav i,
+#sidebar-v2 nav svg,
+#sidebar-v2 nav [class*="icon"],
+#sidebar-v2 [class*="nav-item"] img,
+#sidebar-v2 [class*="nav-item"] i,
+#sidebar-v2 [class*="nav-item"] svg,
+#sidebar-v2 [class*="menu-icon"],
+#sidebar-v2 [class*="sidebar-icon"],
+#sidebar-v2 [class*="sb-icon"] {
   filter: brightness(0) invert(1) !important;
   opacity: 1 !important;
   transition: filter 0.15s ease;
@@ -99,7 +109,12 @@ body {
 
 /* Icon font color fallback */
 #sidebar-v2 nav a i,
-#sidebar-v2 nav a [class*="icon"] {
+#sidebar-v2 nav a [class*="icon"],
+#sidebar-v2 nav i,
+#sidebar-v2 nav [class*="icon"],
+#sidebar-v2 [class*="nav-item"] i,
+#sidebar-v2 [class*="menu-icon"],
+#sidebar-v2 [class*="sidebar-icon"] {
   color: #ffffff !important;
 }
 
@@ -108,7 +123,15 @@ body {
 #sidebar-v2 nav a svg rect,
 #sidebar-v2 nav a svg circle,
 #sidebar-v2 nav a svg polygon,
-#sidebar-v2 nav a svg use {
+#sidebar-v2 nav a svg use,
+#sidebar-v2 nav svg path,
+#sidebar-v2 nav svg rect,
+#sidebar-v2 nav svg circle,
+#sidebar-v2 nav svg polygon,
+#sidebar-v2 nav svg use,
+#sidebar-v2 [class*="nav-item"] svg path,
+#sidebar-v2 [class*="nav-item"] svg rect,
+#sidebar-v2 [class*="nav-item"] svg circle {
   fill: #ffffff !important;
   stroke: none !important;
 }
@@ -122,18 +145,28 @@ body {
 #sidebar-v2 nav a:hover i,
 #sidebar-v2 nav a:hover svg,
 #sidebar-v2 nav a:hover [class*="icon"],
-#sidebar-v2 nav a:hover [class*="nav-icon"] {
+#sidebar-v2 nav a:hover [class*="nav-icon"],
+#sidebar-v2 nav li:hover img,
+#sidebar-v2 nav li:hover i,
+#sidebar-v2 nav li:hover svg,
+#sidebar-v2 [class*="nav-item"]:hover img,
+#sidebar-v2 [class*="nav-item"]:hover i,
+#sidebar-v2 [class*="nav-item"]:hover svg {
   filter: brightness(0) invert(1) sepia(1) saturate(6)
           hue-rotate(100deg) brightness(1.8) !important;
 }
 #sidebar-v2 nav a:hover i,
-#sidebar-v2 nav a:hover [class*="icon"] {
+#sidebar-v2 nav a:hover [class*="icon"],
+#sidebar-v2 nav li:hover i,
+#sidebar-v2 [class*="nav-item"]:hover i {
   color: #00ff9d !important;
 }
 #sidebar-v2 nav a:hover svg path,
 #sidebar-v2 nav a:hover svg rect,
 #sidebar-v2 nav a:hover svg circle,
-#sidebar-v2 nav a:hover svg polygon {
+#sidebar-v2 nav a:hover svg polygon,
+#sidebar-v2 nav li:hover svg path,
+#sidebar-v2 [class*="nav-item"]:hover svg path {
   fill: #5db97e !important;
 }
 
