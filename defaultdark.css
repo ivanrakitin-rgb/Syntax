@@ -157,8 +157,14 @@ body {
 #sidebar-v2 nav a.active i,
 #sidebar-v2 nav a.exact-active i,
 #sidebar-v2 nav a.active svg,
-#sidebar-v2 nav a.exact-active svg {
-  filter: brightness(0) invert(1);
+#sidebar-v2 nav a.exact-active svg,
+#sidebar-v2 nav a.active [class*="icon"],
+#sidebar-v2 nav a.exact-active [class*="icon"],
+#sidebar-v2 nav a.router-link-active img,
+#sidebar-v2 nav a.router-link-active i,
+#sidebar-v2 nav a.router-link-active svg {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1 !important;
 }
 
 #sidebar-v2 [class*="location-name"],
