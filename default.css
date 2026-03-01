@@ -70,56 +70,97 @@ body {
 }
 
 /* =====================================================================
-   3. SIDEBAR
+   3. SIDEBAR  — light background, black text, purple gradient on active
    ===================================================================== */
 #sidebar-v2 {
-  background-color: #001419 !important;
-  border-right: 1px solid rgba(255,255,255,0.08) !important;
+  background-color: #ffffff !important;
+  border-right: 1px solid #d4e5e5 !important;
 }
 
-#sidebar-v2 nav a .nav-title {
-  color: #c8dfe0 !important;   /* 7.5:1 on #001419 */
+/* Default nav text → black */
+#sidebar-v2 nav a,
+#sidebar-v2 nav a .nav-title,
+#sidebar-v2 nav a span,
+#sidebar-v2 nav a p {
+  color: #001419 !important;
 }
 
+/* Hover state — subtle teal tint, text stays black */
+#sidebar-v2 nav a:hover {
+  background-color: rgba(93,185,126,0.12) !important;
+  border-radius: 8px;
+}
 #sidebar-v2 nav a:hover .nav-title,
+#sidebar-v2 nav a:hover span {
+  color: #001419 !important;
+}
+
+/* ---- SELECTED ITEM — gradient + glow ---- */
+#sidebar-v2 nav a.active,
+#sidebar-v2 nav a.exact-active,
+#sidebar-v2 nav a.router-link-active {
+  background: linear-gradient(
+    135deg,
+    #7533a4 0%,
+    #9b48cc 60%,
+    #b06de0 100%
+  ) !important;
+  border-radius: 8px !important;
+  box-shadow:
+    0 4px 14px rgba(117, 51, 164, 0.45),
+    inset 0 1px 0 rgba(255,255,255,0.18) !important;
+}
+
+/* Selected text → white */
 #sidebar-v2 nav a.active .nav-title,
-#sidebar-v2 nav a.exact-active .nav-title {
+#sidebar-v2 nav a.active span,
+#sidebar-v2 nav a.exact-active .nav-title,
+#sidebar-v2 nav a.exact-active span,
+#sidebar-v2 nav a.router-link-active .nav-title,
+#sidebar-v2 nav a.router-link-active span {
   color: #ffffff !important;
 }
 
+/* Icons — dark on light sidebar by default */
 #sidebar-v2 nav a img,
-#sidebar-v2 nav a i {
-  filter: brightness(0) invert(1);
-  opacity: 0.75;
-  transition: filter 0.15s ease, opacity 0.15s ease;
+#sidebar-v2 nav a i,
+#sidebar-v2 nav a svg {
+  filter: brightness(0) opacity(0.65);
+  transition: filter 0.15s ease;
 }
 
-#sidebar-v2 nav a:hover {
-  background-color: rgba(93,185,126,0.15) !important;
-  border-radius: 8px;
+/* Hover → slightly darker icon */
+#sidebar-v2 nav a:hover img,
+#sidebar-v2 nav a:hover i,
+#sidebar-v2 nav a:hover svg {
+  filter: brightness(0) opacity(0.9);
 }
 
-#sidebar-v2 nav a.active,
-#sidebar-v2 nav a.exact-active {
-  background-color: #7533a4 !important;
-  border-radius: 8px;
-}
-
+/* Selected icon → white */
 #sidebar-v2 nav a.active img,
-#sidebar-v2 nav a.exact-active img,
 #sidebar-v2 nav a.active i,
-#sidebar-v2 nav a.exact-active i {
+#sidebar-v2 nav a.active svg,
+#sidebar-v2 nav a.exact-active img,
+#sidebar-v2 nav a.exact-active i,
+#sidebar-v2 nav a.exact-active svg,
+#sidebar-v2 nav a.router-link-active img,
+#sidebar-v2 nav a.router-link-active i,
+#sidebar-v2 nav a.router-link-active svg {
   filter: brightness(0) invert(1);
-  opacity: 1;
 }
 
+/* Location / account name */
 #sidebar-v2 [class*="location-name"],
 #sidebar-v2 [class*="account-name"] {
-  color: #c8dfe0 !important;
+  color: #001419 !important;
 }
 
+/* Scrollbar */
 #sidebar-v2 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255,0.15) !important;
+  background-color: rgba(0,20,25,0.15) !important;
+}
+#sidebar-v2 ::-webkit-scrollbar-thumb:hover {
+  background-color: #7533a4 !important;
 }
 
 /* =====================================================================
@@ -132,7 +173,7 @@ body {
   content: 'Bewertungen';
   font-size: 14px;
   line-height: 1;
-  color: #c8dfe0;
+  color: #001419;   /* black — matches non-selected nav text */
 }
 
 /* =====================================================================
