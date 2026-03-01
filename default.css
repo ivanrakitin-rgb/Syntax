@@ -13,101 +13,107 @@
    1. DESIGN TOKENS
    ===================================================================== */
 :root {
-  --hl-bg:              #ecf3f3;
-  --hl-bg-subtle:       #ddeaea;
-  --hl-surface:         #ffffff;
-  --hl-text:            #001419;
-  --hl-text-body:       #1a2e33;   /* high-contrast body text on white */
-  --hl-text-secondary:  #5c4b45;   /* 6.5:1 on #ecf3f3, 7.2:1 on white */
-  --hl-text-muted:      #6e5c55;   /* labels, captions */
-  --hl-disabled:        #9e8d87;
-  --hl-green:           #5db97e;
-  --hl-green-hover:     #3d8a58;
-  --hl-purple:          #7533a4;
-  --hl-purple-light:    #c49bdd;
-  --hl-border:          #b8cecd;
-  --hl-border-subtle:   #d4e5e5;
-  --hl-sidebar-bg:      #001419;
-  --hl-sidebar-hover:   rgba(93, 185, 126, 0.15);
-  --hl-sidebar-active:  #7533a4;
+  --hl-bg:              #05080f;   /* near-black body */
+  --hl-bg-subtle:       #0a0f1a;
+  --hl-surface:         #0d1526;   /* card / surface */
+  --hl-surface-raised:  #141e30;
+  --hl-text:            #00ff9d;   /* neon green primary */
+  --hl-text-body:       #b8f5e8;   /* 8.9:1 on card bg */
+  --hl-text-secondary:  #7ddcc0;   /* 5.4:1 on card bg */
+  --hl-text-muted:      #4db899;
+  --hl-disabled:        #2a4460;
+  --hl-green:           #00ff9d;   /* neon green */
+  --hl-green-hover:     #00cc7a;
+  --hl-purple:          #cc00ff;   /* neon magenta-purple */
+  --hl-purple-hover:    #9500d4;
+  --hl-purple-light:    #f0d4ff;
+  --hl-cyan:            #00d4ff;   /* electric cyan accent */
+  --hl-border:          #0c2a4a;
+  --hl-border-glow:     rgba(0,255,157,0.25);
+  --hl-sidebar-bg:      #030610;
+  --hl-sidebar-hover:   rgba(0,255,157,0.10);
+  --hl-sidebar-active:  #cc00ff;
 
-  /* Remap GHL --gray-* tokens (used heavily in components) */
-  --gray-25:   #f5fafa;
-  --gray-50:   #edf5f5;
-  --gray-100:  #daeaea;
-  --gray-200:  #b8cecd;
-  --gray-300:  #96b2b1;
-  --gray-400:  #7a9695;
-  --gray-500:  #5c4b45;   /* was #908179 — now passes 4.5:1 on white */
-  --gray-600:  #4a3a34;
-  --gray-700:  #2e1e1a;
-  --gray-800:  #1a0e0b;
-  --gray-900:  #001419;
+  /* Remap GHL --gray-* tokens */
+  --gray-25:   #060a14;
+  --gray-50:   #080d18;
+  --gray-100:  #0d1526;
+  --gray-200:  #0c2a4a;
+  --gray-300:  #164070;
+  --gray-400:  #4db899;
+  --gray-500:  #7ddcc0;   /* 5.4:1 on card bg */
+  --gray-600:  #b8f5e8;   /* 8.9:1 on card bg */
+  --gray-700:  #d4fff5;
+  --gray-800:  #eafffa;
+  --gray-900:  #00ff9d;   /* neon green primary */
 
-  --base-white:               #ffffff;
-  --base-bg:                  #ecf3f3;
-  --base-black:               #001419;
-  --base-black-rgba-opacity:  rgba(0,20,25,0.55);
+  --base-white:               #0d1526;   /* surfaces (dark) */
+  --base-bg:                  #05080f;
+  --base-black:               #00ff9d;   /* repurposed as primary neon */
+  --base-black-rgba-opacity:  rgba(0,255,157,0.15);
 
-  /* Naive UI primary tokens */
-  --n-primary-color:         #7533a4 !important;
-  --n-primary-color-hover:   #8b3fbf !important;
-  --n-primary-color-pressed: #5e2785 !important;
-  --n-primary-color-suppl:   #c49bdd !important;
+  /* Naive UI primary tokens → magenta-purple */
+  --n-primary-color:         #cc00ff !important;
+  --n-primary-color-hover:   #9500d4 !important;
+  --n-primary-color-pressed: #6e009a !important;
+  --n-primary-color-suppl:   #f0d4ff !important;
 }
 
 /* =====================================================================
    2. BODY / ROOT SHELL
    ===================================================================== */
 body {
-  background-color: #ecf3f3 !important;
-  color: #001419 !important;
+  background-color: #05080f !important;
+  color: #00ff9d !important;
 }
 
 .lead-connector {
-  background-color: #ecf3f3 !important;
+  background-color: #05080f !important;
 }
 
 /* =====================================================================
-   3. SIDEBAR  — light background, black text, purple gradient on active
+   3. SIDEBAR  — deep black, neon icons, magenta gradient on active
    ===================================================================== */
 #sidebar-v2 {
-  background-color: #ffffff !important;
-  border-right: 1px solid #d4e5e5 !important;
+  background-color: #030610 !important;
+  border-right: 1px solid #0c2a4a !important;
+  box-shadow: 2px 0 20px rgba(0,255,157,0.08) !important;
 }
 
-/* Default nav text → black */
+/* Default nav text → neon mint */
 #sidebar-v2 nav a,
 #sidebar-v2 nav a .nav-title,
 #sidebar-v2 nav a span,
 #sidebar-v2 nav a p {
-  color: #001419 !important;
+  color: #7ddcc0 !important;
 }
 
-/* Hover state — subtle teal tint, text stays black */
+/* Hover state — neon green tint */
 #sidebar-v2 nav a:hover {
-  background-color: rgba(93,185,126,0.12) !important;
+  background-color: rgba(0,255,157,0.10) !important;
   border-radius: 8px;
+  box-shadow: inset 0 0 0 1px rgba(0,255,157,0.15) !important;
 }
 #sidebar-v2 nav a:hover .nav-title,
 #sidebar-v2 nav a:hover span {
-  color: #001419 !important;
+  color: #00ff9d !important;
 }
 
-/* ---- SELECTED ITEM — gradient + glow ---- */
+/* ---- SELECTED ITEM — magenta-purple gradient + neon glow ---- */
 #sidebar-v2 nav a.active,
 #sidebar-v2 nav a.exact-active,
 #sidebar-v2 nav a.router-link-active {
   background: linear-gradient(
     135deg,
-    #7533a4 0%,
-    #9b48cc 60%,
-    #b06de0 100%
+    #6e009a 0%,
+    #9500d4 55%,
+    #cc00ff 100%
   ) !important;
   border-radius: 8px !important;
   box-shadow:
-    0 4px 14px rgba(117, 51, 164, 0.45),
-    inset 0 1px 0 rgba(255,255,255,0.18) !important;
+    0 0 18px rgba(204,0,255,0.55),
+    0 4px 14px rgba(149,0,212,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.12) !important;
 }
 
 /* Selected text → white */
@@ -118,24 +124,26 @@ body {
 #sidebar-v2 nav a.router-link-active .nav-title,
 #sidebar-v2 nav a.router-link-active span {
   color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255,255,255,0.6) !important;
 }
 
-/* Icons — dark on light sidebar by default */
+/* Icons — white/inverted on dark sidebar by default */
 #sidebar-v2 nav a img,
 #sidebar-v2 nav a i,
 #sidebar-v2 nav a svg {
-  filter: brightness(0) opacity(0.65);
+  filter: brightness(0) invert(1) opacity(0.55);
   transition: filter 0.15s ease;
 }
 
-/* Hover → slightly darker icon */
+/* Hover → neon green tinted icon */
 #sidebar-v2 nav a:hover img,
 #sidebar-v2 nav a:hover i,
 #sidebar-v2 nav a:hover svg {
-  filter: brightness(0) opacity(0.9);
+  filter: brightness(0) invert(1) sepia(1) saturate(4)
+          hue-rotate(100deg) brightness(1.4) opacity(0.9);
 }
 
-/* Selected icon → white */
+/* Selected icon → white with glow */
 #sidebar-v2 nav a.active img,
 #sidebar-v2 nav a.active i,
 #sidebar-v2 nav a.active svg,
@@ -151,15 +159,15 @@ body {
 /* Location / account name */
 #sidebar-v2 [class*="location-name"],
 #sidebar-v2 [class*="account-name"] {
-  color: #001419 !important;
+  color: #7ddcc0 !important;
 }
 
 /* Scrollbar */
 #sidebar-v2 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0,20,25,0.15) !important;
+  background-color: rgba(0,255,157,0.20) !important;
 }
 #sidebar-v2 ::-webkit-scrollbar-thumb:hover {
-  background-color: #7533a4 !important;
+  background-color: #cc00ff !important;
 }
 
 /* =====================================================================
@@ -172,7 +180,7 @@ body {
   content: 'Bewertungen';
   font-size: 14px;
   line-height: 1;
-  color: #001419;   /* black — matches non-selected nav text */
+  color: #7ddcc0;   /* neon mint — matches sidebar nav text */
 }
 
 /* =====================================================================
@@ -180,163 +188,247 @@ body {
    ===================================================================== */
 header.hl_header,
 header.hl_header.--agency {
-  background-color: #ecf3f3 !important;
-  border-bottom: 1px solid #b8cecd !important;
-  box-shadow: 0 1px 4px rgba(0,20,25,0.08) !important;
+  background-color: #030610 !important;
+  border-bottom: 1px solid #0c2a4a !important;
+  box-shadow:
+    0 1px 0 rgba(0,255,157,0.20),
+    0 4px 24px rgba(0,0,0,0.6) !important;
 }
 
 header.hl_header *,
 header.hl_header.--agency,
 header.hl_header.--agency i,
 header.hl_header.--agency span {
-  color: #001419 !important;
+  color: #00ff9d !important;
 }
 
 header.hl_header.--agency .btn {
   background-color: transparent !important;
-  color: #001419 !important;
+  color: #00ff9d !important;
 }
 
 header.hl_header.--agency .btn:hover {
-  background-color: #ddeaea !important;
+  background-color: rgba(0,255,157,0.10) !important;
 }
 
 header.hl_header input,
 header.hl_header .n-input {
-  background-color: #ffffff !important;
-  border-color: #b8cecd !important;
-  color: #001419 !important;
+  background-color: #0a0f1a !important;
+  border-color: #0c2a4a !important;
+  color: #b8f5e8 !important;
 }
 
 /* =====================================================================
    6. MAIN CONTENT & CARDS
    ===================================================================== */
+
+/* ---- Cyberpunk page background ---- */
+#location-dashboard,
+.location-dashboard-wrapper,
+.hl-wrapper-container,
 .hl_main-content,
 [class*="page-container"],
 [class*="main-content"],
 [class*="content-area"] {
-  background-color: #ecf3f3 !important;
+  background-color: #05080f !important;
+  background-image: none !important;
 }
 
+/* Tailwind utility class overrides */
+.bg-gray-50,
+.bg-gray-100,
+#location-dashboard.bg-gray-50,
+.location-dashboard-wrapper.bg-gray-100 {
+  background-color: #05080f !important;
+}
+
+/* ---- n-card (Naive UI) ---- */
 .n-card,
 .n-card.n-card--bordered {
-  background-color: #ffffff !important;
-  border-color: #d4e5e5 !important;
-  color: #1a2e33 !important;
-  box-shadow: 0 1px 4px rgba(0,20,25,0.06);
+  background-color: #0d1526 !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(13,21,38,0.97) 0%,
+    rgba(6,10,18,1) 100%
+  ) !important;
+  border: 1px solid #0c2a4a !important;
+  border-top: 1px solid rgba(0,255,157,0.18) !important;
+  box-shadow:
+    0 0 0 1px rgba(0,255,157,0.06),
+    0 4px 24px rgba(0,0,0,0.6) !important;
+  color: #b8f5e8 !important;
 }
 
 .n-card .n-card-header__main,
 .n-card .n-card__title {
-  color: #001419 !important;
+  color: #00ff9d !important;
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(0,255,157,0.4);
 }
 
 .n-card .n-card__content {
-  color: #2e1e1a !important;   /* 12:1 on white */
+  color: #b8f5e8 !important;
+}
+
+/* ---- hl-card (Dashboard widget cards — inline bg override) ---- */
+/* Neon-rimmed frosted glass slab */
+.hl-card {
+  background: linear-gradient(
+    145deg,
+    rgba(10,20,45,0.95) 0%,
+    rgba(6,12,28,0.98) 100%
+  ) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(0,255,157,0.22) !important;
+  border-radius: 10px !important;
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,0.08),
+    0 0 20px rgba(0,255,157,0.12),
+    0 8px 32px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(0,255,157,0.10) !important;
+  color: #b8f5e8 !important;
+}
+
+.hl-card .hl-card-header p,
+.hl-card .hl-card-header .hl-text-md-medium,
+.hl-card [role="heading"] {
+  color: #00ff9d !important;
+  text-shadow: 0 0 8px rgba(0,255,157,0.35);
+}
+
+.hl-card .hl-card-content,
+.hl-card .hl-card-content p,
+.hl-card .hl-card-content span,
+.hl-card .hl-card-content div {
+  color: #b8f5e8 !important;
+}
+
+.hl-card .hl-display-sm-semibold,
+.hl-card .text-3xl {
+  color: #00ff9d !important;
+  text-shadow: 0 0 12px rgba(0,255,157,0.5);
+}
+
+.hl-card .hl-text-xs-regular,
+.hl-card .text-gray-500 {
+  color: #4db899 !important;
+}
+
+.hl-card .hl-empty-title {
+  color: #7ddcc0 !important;
+}
+
+.hl-card .hl-card-footer {
+  border-top: 1px solid rgba(0,255,157,0.12) !important;
 }
 
 /* =====================================================================
    7. TABLES
    ===================================================================== */
 .table-container:not(.ghl-transparent-heading) {
-  background: #ffffff !important;
-  border: 1px solid #d4e5e5 !important;
+  background: #0d1526 !important;
+  border: 1px solid #0c2a4a !important;
+  box-shadow: 0 0 0 1px rgba(0,255,157,0.06), 0 4px 20px rgba(0,0,0,0.5) !important;
 }
 
 .table-container .n-data-table .n-data-table-th,
 .table-container table thead tr th {
-  background: #edf5f5 !important;
-  color: #4a3a34 !important;   /* 8:1 on #edf5f5 */
-  border-bottom: 1px solid #d4e5e5 !important;
+  background: #080d18 !important;
+  color: #00ff9d !important;
+  border-bottom: 1px solid rgba(0,255,157,0.2) !important;
   font-weight: 600;
+  text-shadow: 0 0 8px rgba(0,255,157,0.3);
 }
 
 .table-container .n-data-table .n-data-table-td {
-  color: #1a2e33 !important;   /* 11:1 on white */
-  border-bottom: 1px solid #d4e5e5 !important;
+  color: #b8f5e8 !important;
+  border-bottom: 1px solid #0c2a4a !important;
 }
 
 .n-data-table .n-data-table-tr:hover .n-data-table-td {
-  background-color: #f5fafa !important;
+  background-color: rgba(0,255,157,0.05) !important;
 }
 
 .n-data-table .n-data-table-tr--checked .n-data-table-td {
-  background-color: rgba(196,155,221,0.12) !important;
+  background-color: rgba(204,0,255,0.12) !important;
 }
 
 .n-checkbox.n-checkbox--checked .n-checkbox-box {
-  background-color: #7533a4 !important;
-  border-color: #7533a4 !important;
+  background-color: #cc00ff !important;
+  border-color: #cc00ff !important;
+  box-shadow: 0 0 8px rgba(204,0,255,0.5) !important;
 }
 
 /* =====================================================================
-   8. BUTTONS
-   Naive UI injects --n-color inline; CSS !important on custom props
-   overrides inline per spec. Direct property fallbacks added too.
+   8. BUTTONS — neon glow style
    ===================================================================== */
 
-/* --- Primary (green) --- */
+/* --- Primary (neon green) --- */
 .n-button--primary-type {
-  --n-color:           #5db97e !important;
-  --n-color-hover:     #3d8a58 !important;
-  --n-color-pressed:   #2f6b44 !important;
-  --n-color-focus:     #5db97e !important;
-  --n-text-color:      #ffffff !important;
-  --n-text-color-hover:   #ffffff !important;
-  --n-text-color-pressed: #ffffff !important;
-  --n-border:          1px solid #5db97e !important;
-  --n-border-hover:    1px solid #3d8a58 !important;
-  --n-border-pressed:  1px solid #2f6b44 !important;
-  --n-border-focus:    1px solid #5db97e !important;
+  --n-color:              #00ff9d !important;
+  --n-color-hover:        #00cc7a !important;
+  --n-color-pressed:      #009958 !important;
+  --n-color-focus:        #00ff9d !important;
+  --n-text-color:         #05080f !important;
+  --n-text-color-hover:   #05080f !important;
+  --n-text-color-pressed: #05080f !important;
+  --n-border:             1px solid #00ff9d !important;
+  --n-border-hover:       1px solid #00cc7a !important;
+  --n-border-pressed:     1px solid #009958 !important;
 }
 .n-button.n-button--primary-type {
-  background-color: #5db97e !important;
-  color: #ffffff !important;
-  border: 1px solid #5db97e !important;
+  background-color: #00ff9d !important;
+  color: #05080f !important;
+  border: 1px solid #00ff9d !important;
+  box-shadow: 0 0 14px rgba(0,255,157,0.50), 0 0 4px rgba(0,255,157,0.30) !important;
+  font-weight: 700;
 }
 .n-button.n-button--primary-type:hover {
-  background-color: #3d8a58 !important;
-  border-color: #3d8a58 !important;
+  background-color: #00cc7a !important;
+  border-color: #00cc7a !important;
+  box-shadow: 0 0 22px rgba(0,255,157,0.75), 0 0 8px rgba(0,255,157,0.40) !important;
 }
 
 /* --- Default/secondary --- */
 .n-button--default-type {
-  --n-color:        #ffffff !important;
-  --n-color-hover:  #edf5f5 !important;
-  --n-text-color:   #001419 !important;
-  --n-border:       1px solid #b8cecd !important;
-  --n-border-hover: 1px solid #96b2b1 !important;
+  --n-color:        #0d1526 !important;
+  --n-color-hover:  #141e30 !important;
+  --n-text-color:   #00ff9d !important;
+  --n-border:       1px solid rgba(0,255,157,0.35) !important;
+  --n-border-hover: 1px solid rgba(0,255,157,0.65) !important;
 }
 .n-button.n-button--default-type {
-  background-color: #ffffff !important;
-  color: #001419 !important;
-  border: 1px solid #b8cecd !important;
+  background-color: #0d1526 !important;
+  color: #00ff9d !important;
+  border: 1px solid rgba(0,255,157,0.35) !important;
 }
 .n-button.n-button--default-type:hover {
-  background-color: #edf5f5 !important;
+  background-color: #141e30 !important;
+  box-shadow: 0 0 10px rgba(0,255,157,0.20) !important;
 }
 
 /* --- Generic .btn classes --- */
 .btn-primary, .btn.btn-primary {
-  background-color: #5db97e !important;
-  border-color: #5db97e !important;
-  color: #ffffff !important;
+  background-color: #00ff9d !important;
+  border-color: #00ff9d !important;
+  color: #05080f !important;
+  box-shadow: 0 0 14px rgba(0,255,157,0.45) !important;
 }
 .btn-primary:hover, .btn.btn-primary:hover {
-  background-color: #3d8a58 !important;
-  border-color: #3d8a58 !important;
+  background-color: #00cc7a !important;
+  border-color: #00cc7a !important;
 }
 
 /* --- Disabled state --- */
 .n-button--disabled,
 .btn:disabled,
 button:disabled {
-  --n-color:      #d4e5e5 !important;
-  --n-text-color: #9e8d87 !important;
-  background-color: #d4e5e5 !important;
-  color: #9e8d87 !important;
-  border-color: #d4e5e5 !important;
+  --n-color:      #0a1424 !important;
+  --n-text-color: #2a4460 !important;
+  background-color: #0a1424 !important;
+  color: #2a4460 !important;
+  border-color: #0c2a4a !important;
   cursor: not-allowed !important;
 }
 
@@ -344,144 +436,178 @@ button:disabled {
    9. INPUTS & SELECTS
    ===================================================================== */
 .n-input {
-  --n-color:             #ffffff !important;
-  --n-color-focus:       #f5fafa !important;
-  --n-color-disabled:    #f0f7f7 !important;
-  --n-text-color:        #001419 !important;
-  --n-placeholder-color: #7a9695 !important;
-  --n-border:            1px solid #b8cecd !important;
-  --n-border-hover:      1px solid #96b2b1 !important;
-  --n-border-focus:      1px solid #7533a4 !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(117,51,164,0.2) !important;
+  --n-color:             #0a0f1a !important;
+  --n-color-focus:       #0d1526 !important;
+  --n-color-disabled:    #060a14 !important;
+  --n-text-color:        #b8f5e8 !important;
+  --n-placeholder-color: #4db899 !important;
+  --n-border:            1px solid #0c2a4a !important;
+  --n-border-hover:      1px solid rgba(0,255,157,0.35) !important;
+  --n-border-focus:      1px solid #00ff9d !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(0,255,157,0.18), 0 0 12px rgba(0,255,157,0.12) !important;
 }
 .n-base-selection {
-  --n-color:             #ffffff !important;
-  --n-color-active:      #f5fafa !important;
-  --n-text-color:        #001419 !important;
-  --n-placeholder-color: #7a9695 !important;
-  --n-border:            1px solid #b8cecd !important;
-  --n-border-hover:      1px solid #96b2b1 !important;
-  --n-border-focus:      1px solid #7533a4 !important;
-  --n-box-shadow-focus:  0 0 0 2px rgba(117,51,164,0.2) !important;
+  --n-color:             #0a0f1a !important;
+  --n-color-active:      #0d1526 !important;
+  --n-text-color:        #b8f5e8 !important;
+  --n-placeholder-color: #4db899 !important;
+  --n-border:            1px solid #0c2a4a !important;
+  --n-border-hover:      1px solid rgba(0,255,157,0.35) !important;
+  --n-border-focus:      1px solid #00ff9d !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(0,255,157,0.18), 0 0 12px rgba(0,255,157,0.12) !important;
 }
 
 .n-input .n-input__input-el,
 .n-input .n-input__textarea-el {
-  color: #001419 !important;
-  caret-color: #7533a4 !important;
+  color: #b8f5e8 !important;
+  caret-color: #00ff9d !important;
 }
 
 .n-input .n-input__placeholder,
 .n-base-selection .n-base-selection-placeholder__inner {
-  color: #7a9695 !important;
+  color: #4db899 !important;
 }
 
 /* Dropdown panels */
 .n-base-select-menu, .n-select-menu {
-  background-color: #ffffff !important;
-  border: 1px solid #d4e5e5 !important;
-  box-shadow: 0 8px 24px rgba(0,20,25,0.12) !important;
+  background-color: #0d1526 !important;
+  border: 1px solid #0c2a4a !important;
+  box-shadow: 0 0 0 1px rgba(0,255,157,0.08), 0 8px 32px rgba(0,0,0,0.7) !important;
 }
 
-.n-base-select-option { color: #1a2e33 !important; }
+.n-base-select-option { color: #b8f5e8 !important; }
 .n-base-select-option:hover,
 .n-base-select-option--pending {
-  background-color: rgba(196,155,221,0.15) !important;
-  color: #7533a4 !important;
+  background-color: rgba(0,255,157,0.08) !important;
+  color: #00ff9d !important;
 }
 .n-base-select-option--selected {
-  background-color: rgba(196,155,221,0.2) !important;
-  color: #7533a4 !important;
+  background-color: rgba(0,255,157,0.14) !important;
+  color: #00ff9d !important;
 }
 
 /* =====================================================================
    10. MODALS & DRAWERS
    ===================================================================== */
 .n-modal, .hl-modal {
-  background: #ffffff !important;
-  color: #001419 !important;
-  box-shadow: 0 20px 40px rgba(0,20,25,0.15) !important;
+  background: #0d1526 !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(13,21,38,0.98) 0%,
+    rgba(6,10,24,1) 100%
+  ) !important;
+  color: #b8f5e8 !important;
+  border: 1px solid rgba(0,255,157,0.18) !important;
+  box-shadow:
+    0 0 0 1px rgba(0,255,157,0.08),
+    0 0 40px rgba(0,255,157,0.10),
+    0 24px 60px rgba(0,0,0,0.8) !important;
+}
+
+.n-modal-mask {
+  background-color: rgba(3,6,16,0.85) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
 }
 
 .hr-drawer {
-  background-color: #ffffff !important;
-  color: #001419 !important;
+  background-color: #0a0f1a !important;
+  color: #b8f5e8 !important;
+  border-left: 1px solid rgba(0,255,157,0.15) !important;
 }
 
 .hr-drawer .hr-drawer-content .hr-drawer-header {
-  border-bottom-color: #d4e5e5 !important;
-  color: #001419 !important;
+  border-bottom-color: #0c2a4a !important;
+  color: #00ff9d !important;
 }
 
 /* =====================================================================
    11. NAVIGATION TABS
    ===================================================================== */
 .n-tabs .n-tabs-tab {
-  color: #5c4b45 !important;   /* 6.5:1 on page bg */
+  color: #4db899 !important;
 }
 .n-tabs .n-tabs-tab.n-tabs-tab--active {
-  color: #7533a4 !important;
+  color: #00ff9d !important;
   font-weight: 600;
+  text-shadow: 0 0 8px rgba(0,255,157,0.5);
 }
 .n-tabs .n-tabs-bar {
-  background-color: #7533a4 !important;
+  background-color: #00ff9d !important;
+  box-shadow: 0 0 10px rgba(0,255,157,0.6) !important;
+}
+.n-tabs .n-tabs-pane-wrapper {
+  color: #b8f5e8 !important;
 }
 
 /* =====================================================================
    12. TAGS & BADGES
    ===================================================================== */
 .n-tag.n-tag--primary {
-  background-color: rgba(196,155,221,0.2) !important;
-  color: #5e1f8a !important;   /* darker purple, 5.5:1 on white */
-  border-color: rgba(117,51,164,0.25) !important;
+  background-color: rgba(204,0,255,0.15) !important;
+  color: #f0d4ff !important;
+  border-color: rgba(204,0,255,0.35) !important;
+  box-shadow: 0 0 6px rgba(204,0,255,0.25) !important;
 }
 .n-tag.n-tag--success {
-  background-color: rgba(93,185,126,0.15) !important;
-  color: #2f6b44 !important;   /* 5.2:1 on white */
-  border-color: rgba(61,138,88,0.3) !important;
+  background-color: rgba(0,255,157,0.10) !important;
+  color: #00ff9d !important;
+  border-color: rgba(0,255,157,0.30) !important;
+  box-shadow: 0 0 6px rgba(0,255,157,0.20) !important;
 }
 
 /* =====================================================================
    13. TOOLBAR
    ===================================================================== */
 .hl-toolbar, .hl-toolbar.light {
-  background: #ffffff !important;
-  border-bottom: 1px solid #b8cecd !important;
-  color: #001419 !important;
+  background: #030610 !important;
+  border-bottom: 1px solid rgba(0,255,157,0.18) !important;
+  color: #00ff9d !important;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.5) !important;
 }
 
 /* =====================================================================
    14. DROPDOWN MENUS
    ===================================================================== */
 .n-dropdown-menu {
-  background-color: #ffffff !important;
-  border: 1px solid #d4e5e5 !important;
-  box-shadow: 0 8px 24px rgba(0,20,25,0.12) !important;
+  background-color: #0d1526 !important;
+  border: 1px solid #0c2a4a !important;
+  box-shadow: 0 0 0 1px rgba(0,255,157,0.08), 0 8px 32px rgba(0,0,0,0.7) !important;
 }
 .n-dropdown-option .n-dropdown-option-body__label {
-  color: #1a2e33 !important;
+  color: #b8f5e8 !important;
 }
 .n-dropdown-option .n-dropdown-option-body--pending::before {
-  background-color: rgba(93,185,126,0.1) !important;
+  background-color: rgba(0,255,157,0.08) !important;
 }
 
 /* =====================================================================
    15. SCROLLBARS
    ===================================================================== */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #daeaea; }
-::-webkit-scrollbar-thumb { background: #c49bdd; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #7533a4; }
+::-webkit-scrollbar-track { background: #060a14; }
+::-webkit-scrollbar-thumb { background: #164070; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #00ff9d; box-shadow: 0 0 6px rgba(0,255,157,0.6); }
 
 /* =====================================================================
    16. TEXT SELECTION & FOCUS
    ===================================================================== */
 ::selection {
-  background-color: rgba(196,155,221,0.4);
-  color: #001419;
+  background-color: rgba(0,255,157,0.25);
+  color: #05080f;
 }
 *:focus-visible {
-  outline: 2px solid #7533a4;
+  outline: 2px solid #00ff9d;
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0,255,157,0.18);
 }
-3q 
+
+/* =====================================================================
+   17. MISC TEXT OVERRIDES
+   ===================================================================== */
+.n-divider { background-color: #0c2a4a !important; }
+
+.n-empty .n-empty__description { color: #4db899 !important; }
+
+.rest-item { color: #b8f5e8 !important; }
+.rest-item:hover { background-color: rgba(0,255,157,0.07) !important; }
