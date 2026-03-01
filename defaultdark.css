@@ -232,31 +232,54 @@ header.hl_header .n-input {
   color: #c8dfe0 !important;
 }
 
-/* ---- hl-card (Dashboard widget cards — have inline bg: white) ---- */
-/* Purple frosted-glass bubble effect */
+/* ---- hl-card (Dashboard widget cards — inline bg override) ---- */
+/* Neon magenta-purple slab — matches active sidebar gradient style  */
 .hl-card {
   background: linear-gradient(
     145deg,
-    rgba(75, 20, 120, 0.88) 0%,
-    rgba(100, 45, 155, 0.75) 40%,
-    rgba(140, 80, 190, 0.55) 100%
+    #2a0045 0%,
+    #4b0080 35%,
+    #6e009a 65%,
+    #9500d4 100%
   ) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(196,155,221,0.30) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border-top: 1px solid rgba(204,0,255,0.70) !important;
+  border-right: 1px solid rgba(149,0,212,0.35) !important;
+  border-bottom: 1px solid rgba(110,0,154,0.30) !important;
+  border-left: 1px solid rgba(149,0,212,0.35) !important;
   border-radius: 14px !important;
   box-shadow:
-    0 8px 32px rgba(117,51,164,0.35),
-    0 2px 8px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.12) !important;
-  color: #e8d5f7 !important;
+    0 0 0 1px rgba(204,0,255,0.15),
+    0 0 28px rgba(204,0,255,0.45),
+    0 0 60px rgba(149,0,212,0.20),
+    0 8px 32px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.14),
+    inset 0 -1px 0 rgba(0,0,0,0.30) !important;
+  color: #f0e4ff !important;
+  position: relative;
+}
+
+/* Neon top-rim shimmer */
+.hl-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.10) 0%,
+    rgba(255,255,255,0.00) 40%
+  );
+  pointer-events: none;
 }
 
 /* Card header text */
 .hl-card .hl-card-header p,
 .hl-card .hl-card-header .hl-text-md-medium,
 .hl-card [role="heading"] {
-  color: #f0e4ff !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(204,0,255,0.60);
 }
 
 /* Card body text — override inline style="color: rgb(51,65,85)" */
@@ -264,28 +287,30 @@ header.hl_header .n-input {
 .hl-card .hl-card-content p,
 .hl-card .hl-card-content span,
 .hl-card .hl-card-content div {
-  color: #e0c8ff !important;
+  color: #e8d5f7 !important;
 }
 
-/* Specific hl text classes inside cards */
+/* Big numbers / stat values */
 .hl-card .hl-display-sm-semibold,
 .hl-card .text-3xl {
-  color: #f0e4ff !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 16px rgba(204,0,255,0.70);
 }
 
+/* Muted labels */
 .hl-card .hl-text-xs-regular,
 .hl-card .text-gray-500 {
-  color: #c49bdd !important;
+  color: rgba(240,212,255,0.70) !important;
 }
 
 /* Empty state titles */
 .hl-card .hl-empty-title {
-  color: #d4b8f0 !important;
+  color: #e8d5f7 !important;
 }
 
 /* Card footer */
 .hl-card .hl-card-footer {
-  border-top: 1px solid rgba(196,155,221,0.20) !important;
+  border-top: 1px solid rgba(204,0,255,0.22) !important;
 }
 
 /* =====================================================================
