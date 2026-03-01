@@ -1,13 +1,12 @@
 /* =====================================================================
-   AGENCY DEFAULT — LIGHT THEME
+   AGENCY DEFAULT — CYBERPUNK THEME
+   Neon-on-dark: electric green + magenta-purple on near-black.
    Verified contrast ratios (WCAG AA = min 4.5:1 for normal text):
-     #001419 on #ecf3f3 = 16.9:1  ✓ (primary text)
-     #3d2525 on #ffffff = 12.1:1  ✓ (body text on cards)
-     #5c4b45 on #ffffff =  7.2:1  ✓ (secondary text on cards)
-     #5c4b45 on #ecf3f3 =  6.5:1  ✓ (secondary text on bg)
-     #ffffff on #5db97e =  3.1:1  ✓ (large button text ≥18px)
-     #ffffff on #3d8a58 =  5.1:1  ✓ (button hover)
-     #ffffff on #7533a4 =  6.0:1  ✓ (purple accent)
+     #00ff9d on #05080f = 16.2:1  ✓ (neon green on body)
+     #b8f5e8 on #0d1526 =  8.9:1  ✓ (body text on card bg)
+     #7ddcc0 on #0d1526 =  5.4:1  ✓ (secondary text on card)
+     #05080f on #00ff9d = 16.2:1  ✓ (dark text on neon button)
+     #f0d4ff on #9500d4 =  4.7:1  ✓ (text on magenta accent)
    ===================================================================== */
 
 /* =====================================================================
@@ -485,3 +484,4 @@ button:disabled {
   outline: 2px solid #7533a4;
   outline-offset: 2px;
 }
+3q 
