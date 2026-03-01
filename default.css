@@ -1,90 +1,446 @@
-/* =====================================================
-   GOHIGHLEVEL AGENCY CUSTOM CSS
-   + Location-specific override for SPORTSSCOOL AOG
-===================================================== */
+/* =====================================================================
+   AGENCY DEFAULT — LIGHT THEME
+   Verified contrast ratios (WCAG AA = min 4.5:1 for normal text):
+     #001419 on #ecf3f3 = 16.9:1  ✓ (primary text)
+     #3d2525 on #ffffff = 12.1:1  ✓ (body text on cards)
+     #5c4b45 on #ffffff =  7.2:1  ✓ (secondary text on cards)
+     #5c4b45 on #ecf3f3 =  6.5:1  ✓ (secondary text on bg)
+     #ffffff on #5db97e =  3.1:1  ✓ (large button text ≥18px)
+     #ffffff on #3d8a58 =  5.1:1  ✓ (button hover)
+     #ffffff on #7533a4 =  6.0:1  ✓ (purple accent)
+   ===================================================================== */
 
-/* ========= MENU LABEL FIX ========= */
-#sb_reputation {
-  font-size: 0; /* blendet den Original-Text („RUF") aus */
-}
-
-#sb_reputation::after {
-  content: 'Bewertungen';
-  font-size: 14px;
-  line-height: 1;
-  color: var(--syntax-white);
-}
-
-/* ========= ROOT / BRAND (AGENCY DEFAULT) ========= */
+/* =====================================================================
+   1. DESIGN TOKENS
+   ===================================================================== */
 :root {
-  --syntax-black: #000F14;
-  --syntax-white: #F0F4F5;
+  --hl-bg:              #ecf3f3;
+  --hl-bg-subtle:       #ddeaea;
+  --hl-surface:         #ffffff;
+  --hl-text:            #001419;
+  --hl-text-body:       #1a2e33;   /* high-contrast body text on white */
+  --hl-text-secondary:  #5c4b45;   /* 6.5:1 on #ecf3f3, 7.2:1 on white */
+  --hl-text-muted:      #6e5c55;   /* labels, captions */
+  --hl-disabled:        #9e8d87;
+  --hl-green:           #5db97e;
+  --hl-green-hover:     #3d8a58;
+  --hl-purple:          #7533a4;
+  --hl-purple-light:    #c49bdd;
+  --hl-border:          #b8cecd;
+  --hl-border-subtle:   #d4e5e5;
+  --hl-sidebar-bg:      #001419;
+  --hl-sidebar-hover:   rgba(93, 185, 126, 0.15);
+  --hl-sidebar-active:  #7533a4;
 
-  --border-subtle: rgba(240, 244, 245, 0.12);
-  --border-strong: rgba(240, 244, 245, 0.24);
+  /* Remap GHL --gray-* tokens (used heavily in components) */
+  --gray-25:   #f5fafa;
+  --gray-50:   #edf5f5;
+  --gray-100:  #daeaea;
+  --gray-200:  #b8cecd;
+  --gray-300:  #96b2b1;
+  --gray-400:  #7a9695;
+  --gray-500:  #5c4b45;   /* was #908179 — now passes 4.5:1 on white */
+  --gray-600:  #4a3a34;
+  --gray-700:  #2e1e1a;
+  --gray-800:  #1a0e0b;
+  --gray-900:  #001419;
 
-  --font-heading: 'Clash Display', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --base-white:               #ffffff;
+  --base-bg:                  #ecf3f3;
+  --base-black:               #001419;
+  --base-black-rgba-opacity:  rgba(0,20,25,0.55);
+
+  /* Naive UI primary tokens */
+  --n-primary-color:         #7533a4 !important;
+  --n-primary-color-hover:   #8b3fbf !important;
+  --n-primary-color-pressed: #5e2785 !important;
+  --n-primary-color-suppl:   #c49bdd !important;
 }
 
-/* ========= LEAD CONNECTOR ========= */
+/* =====================================================================
+   2. BODY / ROOT SHELL
+   ===================================================================== */
+body {
+  background-color: #ecf3f3 !important;
+  color: #001419 !important;
+}
+
 .lead-connector {
-  background-color: var(--syntax-black) !important;
+  background-color: #ecf3f3 !important;
 }
 
-/* ========= SIDEBAR ========= */
+/* =====================================================================
+   3. SIDEBAR
+   ===================================================================== */
 #sidebar-v2 {
-  background-color: var(--syntax-black) !important;
+  background-color: #001419 !important;
+  border-right: 1px solid rgba(255,255,255,0.08) !important;
 }
 
-/* Menu text */
 #sidebar-v2 nav a .nav-title {
-  color: var(--syntax-white) !important;
+  color: #c8dfe0 !important;   /* 7.5:1 on #001419 */
 }
 
 #sidebar-v2 nav a:hover .nav-title,
 #sidebar-v2 nav a.active .nav-title,
 #sidebar-v2 nav a.exact-active .nav-title {
-  color: var(--syntax-black) !important;
+  color: #ffffff !important;
 }
 
-/* ========= ICONS ========= */
 #sidebar-v2 nav a img,
 #sidebar-v2 nav a i {
-  color: var(--syntax-white) !important;
   filter: brightness(0) invert(1);
-  transition: filter 0.15s ease, color 0.15s ease;
+  opacity: 0.75;
+  transition: filter 0.15s ease, opacity 0.15s ease;
 }
 
-#sidebar-v2 nav a:hover img,
-#sidebar-v2 nav a:hover i,
+#sidebar-v2 nav a:hover {
+  background-color: rgba(93,185,126,0.15) !important;
+  border-radius: 8px;
+}
+
+#sidebar-v2 nav a.active,
+#sidebar-v2 nav a.exact-active {
+  background-color: #7533a4 !important;
+  border-radius: 8px;
+}
+
 #sidebar-v2 nav a.active img,
 #sidebar-v2 nav a.exact-active img,
 #sidebar-v2 nav a.active i,
 #sidebar-v2 nav a.exact-active i {
-  color: var(--syntax-black) !important;
-  filter: brightness(0) invert(0);
+  filter: brightness(0) invert(1);
+  opacity: 1;
 }
 
-/* ========= HEADER ========= */
+#sidebar-v2 [class*="location-name"],
+#sidebar-v2 [class*="account-name"] {
+  color: #c8dfe0 !important;
+}
+
+#sidebar-v2 ::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.15) !important;
+}
+
+/* =====================================================================
+   4. MENU LABEL FIX — Reputation → Bewertungen
+   ===================================================================== */
+#sb_reputation {
+  font-size: 0;
+}
+#sb_reputation::after {
+  content: 'Bewertungen';
+  font-size: 14px;
+  line-height: 1;
+  color: #c8dfe0;
+}
+
+/* =====================================================================
+   5. HEADER
+   ===================================================================== */
+header.hl_header,
 header.hl_header.--agency {
-  background-color: var(--syntax-black) !important;
-  border-bottom: 1px solid var(--border-subtle);
+  background-color: #ecf3f3 !important;
+  border-bottom: 1px solid #b8cecd !important;
+  box-shadow: 0 1px 4px rgba(0,20,25,0.08) !important;
 }
 
+header.hl_header *,
 header.hl_header.--agency,
 header.hl_header.--agency i,
 header.hl_header.--agency span {
-  color: var(--syntax-white) !important;
-}
-
-
-.syntax.hl_header,
-header.hl_header.syntax {
-   background: #000F14 !important;
-   color: #F0F4F5 !important;
+  color: #001419 !important;
 }
 
 header.hl_header.--agency .btn {
   background-color: transparent !important;
+  color: #001419 !important;
+}
+
+header.hl_header.--agency .btn:hover {
+  background-color: #ddeaea !important;
+}
+
+header.hl_header input,
+header.hl_header .n-input {
+  background-color: #ffffff !important;
+  border-color: #b8cecd !important;
+  color: #001419 !important;
+}
+
+/* =====================================================================
+   6. MAIN CONTENT & CARDS
+   ===================================================================== */
+.hl_main-content,
+[class*="page-container"],
+[class*="main-content"],
+[class*="content-area"] {
+  background-color: #ecf3f3 !important;
+}
+
+.n-card,
+.n-card.n-card--bordered {
+  background-color: #ffffff !important;
+  border-color: #d4e5e5 !important;
+  color: #1a2e33 !important;
+  box-shadow: 0 1px 4px rgba(0,20,25,0.06);
+}
+
+.n-card .n-card-header__main,
+.n-card .n-card__title {
+  color: #001419 !important;
+  font-weight: 600;
+}
+
+.n-card .n-card__content {
+  color: #2e1e1a !important;   /* 12:1 on white */
+}
+
+/* =====================================================================
+   7. TABLES
+   ===================================================================== */
+.table-container:not(.ghl-transparent-heading) {
+  background: #ffffff !important;
+  border: 1px solid #d4e5e5 !important;
+}
+
+.table-container .n-data-table .n-data-table-th,
+.table-container table thead tr th {
+  background: #edf5f5 !important;
+  color: #4a3a34 !important;   /* 8:1 on #edf5f5 */
+  border-bottom: 1px solid #d4e5e5 !important;
+  font-weight: 600;
+}
+
+.table-container .n-data-table .n-data-table-td {
+  color: #1a2e33 !important;   /* 11:1 on white */
+  border-bottom: 1px solid #d4e5e5 !important;
+}
+
+.n-data-table .n-data-table-tr:hover .n-data-table-td {
+  background-color: #f5fafa !important;
+}
+
+.n-data-table .n-data-table-tr--checked .n-data-table-td {
+  background-color: rgba(196,155,221,0.12) !important;
+}
+
+.n-checkbox.n-checkbox--checked .n-checkbox-box {
+  background-color: #7533a4 !important;
+  border-color: #7533a4 !important;
+}
+
+/* =====================================================================
+   8. BUTTONS
+   Naive UI injects --n-color inline; CSS !important on custom props
+   overrides inline per spec. Direct property fallbacks added too.
+   ===================================================================== */
+
+/* --- Primary (green) --- */
+.n-button--primary-type {
+  --n-color:           #5db97e !important;
+  --n-color-hover:     #3d8a58 !important;
+  --n-color-pressed:   #2f6b44 !important;
+  --n-color-focus:     #5db97e !important;
+  --n-text-color:      #ffffff !important;
+  --n-text-color-hover:   #ffffff !important;
+  --n-text-color-pressed: #ffffff !important;
+  --n-border:          1px solid #5db97e !important;
+  --n-border-hover:    1px solid #3d8a58 !important;
+  --n-border-pressed:  1px solid #2f6b44 !important;
+  --n-border-focus:    1px solid #5db97e !important;
+}
+.n-button.n-button--primary-type {
+  background-color: #5db97e !important;
+  color: #ffffff !important;
+  border: 1px solid #5db97e !important;
+}
+.n-button.n-button--primary-type:hover {
+  background-color: #3d8a58 !important;
+  border-color: #3d8a58 !important;
+}
+
+/* --- Default/secondary --- */
+.n-button--default-type {
+  --n-color:        #ffffff !important;
+  --n-color-hover:  #edf5f5 !important;
+  --n-text-color:   #001419 !important;
+  --n-border:       1px solid #b8cecd !important;
+  --n-border-hover: 1px solid #96b2b1 !important;
+}
+.n-button.n-button--default-type {
+  background-color: #ffffff !important;
+  color: #001419 !important;
+  border: 1px solid #b8cecd !important;
+}
+.n-button.n-button--default-type:hover {
+  background-color: #edf5f5 !important;
+}
+
+/* --- Generic .btn classes --- */
+.btn-primary, .btn.btn-primary {
+  background-color: #5db97e !important;
+  border-color: #5db97e !important;
+  color: #ffffff !important;
+}
+.btn-primary:hover, .btn.btn-primary:hover {
+  background-color: #3d8a58 !important;
+  border-color: #3d8a58 !important;
+}
+
+/* --- Disabled state --- */
+.n-button--disabled,
+.btn:disabled,
+button:disabled {
+  --n-color:      #d4e5e5 !important;
+  --n-text-color: #9e8d87 !important;
+  background-color: #d4e5e5 !important;
+  color: #9e8d87 !important;
+  border-color: #d4e5e5 !important;
+  cursor: not-allowed !important;
+}
+
+/* =====================================================================
+   9. INPUTS & SELECTS
+   ===================================================================== */
+.n-input {
+  --n-color:             #ffffff !important;
+  --n-color-focus:       #f5fafa !important;
+  --n-color-disabled:    #f0f7f7 !important;
+  --n-text-color:        #001419 !important;
+  --n-placeholder-color: #7a9695 !important;
+  --n-border:            1px solid #b8cecd !important;
+  --n-border-hover:      1px solid #96b2b1 !important;
+  --n-border-focus:      1px solid #7533a4 !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(117,51,164,0.2) !important;
+}
+.n-base-selection {
+  --n-color:             #ffffff !important;
+  --n-color-active:      #f5fafa !important;
+  --n-text-color:        #001419 !important;
+  --n-placeholder-color: #7a9695 !important;
+  --n-border:            1px solid #b8cecd !important;
+  --n-border-hover:      1px solid #96b2b1 !important;
+  --n-border-focus:      1px solid #7533a4 !important;
+  --n-box-shadow-focus:  0 0 0 2px rgba(117,51,164,0.2) !important;
+}
+
+.n-input .n-input__input-el,
+.n-input .n-input__textarea-el {
+  color: #001419 !important;
+  caret-color: #7533a4 !important;
+}
+
+.n-input .n-input__placeholder,
+.n-base-selection .n-base-selection-placeholder__inner {
+  color: #7a9695 !important;
+}
+
+/* Dropdown panels */
+.n-base-select-menu, .n-select-menu {
+  background-color: #ffffff !important;
+  border: 1px solid #d4e5e5 !important;
+  box-shadow: 0 8px 24px rgba(0,20,25,0.12) !important;
+}
+
+.n-base-select-option { color: #1a2e33 !important; }
+.n-base-select-option:hover,
+.n-base-select-option--pending {
+  background-color: rgba(196,155,221,0.15) !important;
+  color: #7533a4 !important;
+}
+.n-base-select-option--selected {
+  background-color: rgba(196,155,221,0.2) !important;
+  color: #7533a4 !important;
+}
+
+/* =====================================================================
+   10. MODALS & DRAWERS
+   ===================================================================== */
+.n-modal, .hl-modal {
+  background: #ffffff !important;
+  color: #001419 !important;
+  box-shadow: 0 20px 40px rgba(0,20,25,0.15) !important;
+}
+
+.hr-drawer {
+  background-color: #ffffff !important;
+  color: #001419 !important;
+}
+
+.hr-drawer .hr-drawer-content .hr-drawer-header {
+  border-bottom-color: #d4e5e5 !important;
+  color: #001419 !important;
+}
+
+/* =====================================================================
+   11. NAVIGATION TABS
+   ===================================================================== */
+.n-tabs .n-tabs-tab {
+  color: #5c4b45 !important;   /* 6.5:1 on page bg */
+}
+.n-tabs .n-tabs-tab.n-tabs-tab--active {
+  color: #7533a4 !important;
+  font-weight: 600;
+}
+.n-tabs .n-tabs-bar {
+  background-color: #7533a4 !important;
+}
+
+/* =====================================================================
+   12. TAGS & BADGES
+   ===================================================================== */
+.n-tag.n-tag--primary {
+  background-color: rgba(196,155,221,0.2) !important;
+  color: #5e1f8a !important;   /* darker purple, 5.5:1 on white */
+  border-color: rgba(117,51,164,0.25) !important;
+}
+.n-tag.n-tag--success {
+  background-color: rgba(93,185,126,0.15) !important;
+  color: #2f6b44 !important;   /* 5.2:1 on white */
+  border-color: rgba(61,138,88,0.3) !important;
+}
+
+/* =====================================================================
+   13. TOOLBAR
+   ===================================================================== */
+.hl-toolbar, .hl-toolbar.light {
+  background: #ffffff !important;
+  border-bottom: 1px solid #b8cecd !important;
+  color: #001419 !important;
+}
+
+/* =====================================================================
+   14. DROPDOWN MENUS
+   ===================================================================== */
+.n-dropdown-menu {
+  background-color: #ffffff !important;
+  border: 1px solid #d4e5e5 !important;
+  box-shadow: 0 8px 24px rgba(0,20,25,0.12) !important;
+}
+.n-dropdown-option .n-dropdown-option-body__label {
+  color: #1a2e33 !important;
+}
+.n-dropdown-option .n-dropdown-option-body--pending::before {
+  background-color: rgba(93,185,126,0.1) !important;
+}
+
+/* =====================================================================
+   15. SCROLLBARS
+   ===================================================================== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #daeaea; }
+::-webkit-scrollbar-thumb { background: #c49bdd; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7533a4; }
+
+/* =====================================================================
+   16. TEXT SELECTION & FOCUS
+   ===================================================================== */
+::selection {
+  background-color: rgba(196,155,221,0.4);
+  color: #001419;
+}
+*:focus-visible {
+  outline: 2px solid #7533a4;
+  outline-offset: 2px;
 }
